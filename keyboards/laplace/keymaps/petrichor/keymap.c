@@ -7,6 +7,8 @@ enum layers {_DVORAK, _QWERTY, _RAISE, _LOWER};
 
 #define RAISE MO(_RAISE)
 #define LOWER MO(_LOWER)
+#define DF_DVORAK DF(_DVORAK)
+#define DF_QWERTY DF(_QWERTY)
 #define SP_RAISE LT(_RAISE, KC_SPACE)
 #define SP_LOWER LT(_LOWER, KC_SPACE)
 #define BS_RAISE LT(_RAISE, KC_BSPC)
@@ -40,8 +42,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT(
     KC_TILD,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_UNDS,  KC_PLUS,
-    _______,  _______,  _______,  KC_INS,   KC_PGUP,  KC_HOME,  _______,  _______,  _______,  _______,  KC_COLN,  _______,
-    _______,  _______,  _______,  KC_DEL,   KC_PGDN,  KC_END,   _______,  _______,  _______,  _______,  _______,  _______,
+    _______,  DF_DVORAK,_______,  KC_INS,   KC_PGUP,  KC_HOME,  _______,  _______,  _______,  _______,  KC_COLN,  _______,
+    _______,  DF_QWERTY,_______,  KC_DEL,   KC_PGDN,  KC_END,   _______,  _______,  _______,  _______,  _______,  _______,
     _______,  _______,  _______,  _______,       KC_DEL,             _______,       _______,  _______,  _______,  _______
   )
 };
