@@ -8,6 +8,7 @@ enum layers {_DVORAK, _QWERTY, _RAISE, _LOWER, _MOUSE};
 #define RAISE MO(_RAISE)
 #define LOWER MO(_LOWER)
 #define MOUSE MO(_MOUSE)
+#define T_MOUSE TT(_MOUSE)
 #define DF_DVOR DF(_DVORAK)
 #define DF_QWER DF(_QWERTY)
 #define SP_RAISE LT(_RAISE, KC_SPACE)
@@ -26,14 +27,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,   KC_QUOT,  KC_COMM,  KC_DOT,   KC_P,     KC_Y,     KC_F,     KC_G,     KC_C,     KC_R,     KC_L,     KC_SLSH,  KC_DEL,
     KC_LCTL,    KC_A,     KC_O,     KC_E,     KC_U,     KC_I,     KC_D,     KC_H,     KC_T,     KC_N,     KC_S,             KC_ENT,
     KC_LSPO,         KC_SCLN,  KC_Q,     KC_J,     KC_K,     KC_X,     KC_B,     KC_M,     KC_W,     KC_V,     KC_Z,        KC_RSPC,
-    KC_ESC,   MOUSE,    KC_LGUI,  KC_LALT,       BS_RAISE,           SP_LOWER,        KC_RALT,  KC_RGUI,       GU_RAISE,    KC_RCTL
+    KC_ESC,   T_MOUSE,  KC_LGUI,  KC_LALT,       BS_RAISE,           SP_LOWER,        KC_RALT,  KC_RGUI,       GU_RAISE,    KC_RCTL
   ),
 
   [_QWERTY] = LAYOUT(
     KC_ESC,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_DEL,   KC_BSPC,
     KC_TAB,     KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,     KC_K,     KC_L,     KC_QUOT,          KC_ENT,
     KC_LSPO,         KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,     KC_RSPC,
-    KC_LCTL,  MOUSE,    KC_LGUI,  GU_RAISE,      BS_RAISE,           SP_LOWER,        KC_RGUI,  KC_RALT,       GU_RAISE,    KC_RCTL
+    KC_LCTL,  T_MOUSE,  KC_LGUI,  GU_RAISE,      BS_RAISE,           SP_LOWER,        KC_RGUI,  KC_RALT,       GU_RAISE,    KC_RCTL
   ),
 
   [_RAISE] = LAYOUT(
