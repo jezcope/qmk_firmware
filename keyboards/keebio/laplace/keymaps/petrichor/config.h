@@ -8,3 +8,5 @@
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 40
 
 #define TAPPING_TOGGLE             3
+
+#define PERMISSIVE_HOLD
