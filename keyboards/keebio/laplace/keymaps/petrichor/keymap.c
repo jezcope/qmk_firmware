@@ -5,8 +5,8 @@ enum layers {_DVORAK, _FN1, _FN2, _FN3, _MOUSE};
 
 enum custom_keycodes {
   M_BEST = SAFE_RANGE,
-  M_RGRDS,
-  M_EMAIL,
+  M_RGRDS, M_THNKS, M_CHRS,
+  M_EML_H, M_EML_W,
 };
 
 #define _______ KC_TRNS
@@ -53,8 +53,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_FN3] = LAYOUT(
-    _______,  M_BEST,   M_RGRDS,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-    _______,    M_EMAIL,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,          _______,
+    _______,  M_BEST,   M_RGRDS,  M_THNKS,  M_CHRS,   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
+    _______,    M_EML_H,  M_EML_W,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,          _______,
     _______,         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,     _______,
     _______,  _______,  _______,  _______,       _______,            _______,         _______,  _______,       _______,     _______
   ),
@@ -82,9 +82,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 char s_email[22] = "w.pbcr@renzoyre.pb.hx";
+char s_email_work[15] = "wrm.pbcr@oy.hx";
 
 void keyboard_post_init_user(void) {
   rot13(s_email);
+  rot13(s_email_work);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -94,8 +96,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING("Best wishes,\nJez"); break;
     case M_RGRDS:
       SEND_STRING("Regards,\nJez"); break;
-    case M_EMAIL:
+    case M_THNKS:
+      SEND_STRING("Thanks,\nJez"); break;
+    case M_CHRS:
+      SEND_STRING("Cheers,\nJez"); break;
+    case M_EML_H:
       send_string(s_email); break;
+    case M_EML_W:
+      send_string(s_email_work); break;
     }
   }
   return true;
