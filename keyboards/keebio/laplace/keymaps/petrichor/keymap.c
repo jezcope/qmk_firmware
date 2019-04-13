@@ -1,9 +1,12 @@
 #include QMK_KEYBOARD_H
+#include "rot13.h"
 
-enum layers {_DVORAK, _FN1, _FN2, _MACRO, _MOUSE};
+enum layers {_DVORAK, _FN1, _FN2, _FN3, _MOUSE};
 
 enum custom_keycodes {
   M_BEST = SAFE_RANGE,
+  M_RGRDS,
+  M_EMAIL,
 };
 
 #define _______ KC_TRNS
@@ -11,7 +14,7 @@ enum custom_keycodes {
 
 #define KC_FN1 MO(_FN1)
 #define KC_FN2 MO(_FN2)
-#define KC_MACR MO(_MACRO)
+#define KC_FN3 MO(_FN3)
 #define MOUSE MO(_MOUSE)
 #define T_MOUSE TT(_MOUSE)
 #define DF_DVOR DF(_DVORAK)
@@ -32,12 +35,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,   KC_QUOT,  KC_COMM,  KC_DOT,   KC_P,     KC_Y,     KC_F,     KC_G,     KC_C,     KC_R,     KC_L,     KC_SLSH,  KC_DEL,
     KC_LCTL,    KC_A,     KC_O,     KC_E,     KC_U,     KC_I,     KC_D,     KC_H,     KC_T,     KC_N,     KC_S,             KC_ENT,
     KC_LSPO,         KC_SCLN,  KC_Q,     KC_J,     KC_K,     KC_X,     KC_B,     KC_M,     KC_W,     KC_V,     KC_Z,        KC_RSPC,
-    KC_ESC,   T_MOUSE,  KC_LGUI,  KC_LALT,       BS_FN1,             SP_FN2,          KC_RALT,  KC_MACR,       GU_FN1,      KC_RCTL
+    KC_ESC,   T_MOUSE,  KC_LGUI,  KC_LALT,       BS_FN1,             SP_FN2,          KC_RALT,  KC_FN3,        GU_FN1,      KC_RCTL
   ),
 
   [_FN1] = LAYOUT(
     KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,
-    _______,    M_BEST,   _______,  _______,  KC_VOLU,  KC_LBRC,  KC_RBRC,  KC_4,     KC_5,     KC_6,     KC_SCLN,          KC_BSLASH,
+    _______,    _______,  _______,  _______,  KC_VOLU,  KC_LBRC,  KC_RBRC,  KC_4,     KC_5,     KC_6,     KC_SCLN,          KC_BSLASH,
     _______,         _______,  _______,  _______,  KC_VOLD,  KC_LCBR,  KC_RCBR,  KC_1,     KC_2,     KC_3,     KC_UP,       _______,
     _______,  _______,  _______,  _______,       _______,            KC_DEL,          KC_0,     KC_LEFT,       KC_DOWN,     KC_RGHT
   ),
@@ -49,18 +52,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,  _______,  _______,  _______,       KC_DEL,             _______,         _______,  _______,       _______,     RESET
   ),
 
+  [_FN3] = LAYOUT(
+    _______,  M_BEST,   M_RGRDS,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
+    _______,    M_EMAIL,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,          _______,
+    _______,         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,     _______,
+    _______,  _______,  _______,  _______,       _______,            _______,         _______,  _______,       _______,     _______
+  ),
+
   [_MOUSE] = LAYOUT(
     _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
     _______,    _______,  _______,  _______,  _______,  _______,  KC_WH_U,  KC_MS_L,  KC_MS_D,  KC_MS_U,  KC_MS_R,          _______,
     _______,         _______,  _______,  _______,  _______,  _______,  KC_WH_D,  _______,  _______,  _______,  _______,     _______,
     _______,  _______,  _______,  _______,       KC_BTN2,            KC_BTN1,         _______,  _______,       _______,     _______
-  ),
-
-  [_MACRO] = LAYOUT(
-    _______,  M_BEST,   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-    _______,    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,          _______,
-    _______,         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,     _______,
-    _______,  _______,  _______,  _______,       _______,            _______,         _______,  _______,       _______,     _______
   ),
 
   /* [_QWERTY] = LAYOUT( */
@@ -78,14 +81,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* ), */
 };
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-  case M_BEST:
-    if (record->event.pressed) {
-      SEND_STRING("Best wishes,\nJez");
-    }
-    break;
+char s_email[22] = "w.pbcr@renzoyre.pb.hx";
 
+void keyboard_post_init_user(void) {
+  rot13(s_email);
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (record->event.pressed) {
+    switch (keycode) {
+    case M_BEST:
+      SEND_STRING("Best wishes,\nJez"); break;
+    case M_RGRDS:
+      SEND_STRING("Regards,\nJez"); break;
+    case M_EMAIL:
+      send_string(s_email); break;
+    }
   }
   return true;
 };
