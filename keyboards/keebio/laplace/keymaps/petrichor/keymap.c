@@ -1,13 +1,7 @@
 #include QMK_KEYBOARD_H
-#include "rot13.h"
+#include "petrichor.h"
 
 enum layers {_DVORAK, _FN1, _FN2, _FN3, _MOUSE};
-
-enum custom_keycodes {
-  M_BEST = SAFE_RANGE,
-  M_RGRDS, M_THNKS, M_CHRS,
-  M_EML_H, M_EML_W,
-};
 
 #define _______ KC_TRNS
 #define XXXXXXX KC_NO
@@ -79,32 +73,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /*   _______,        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,    _______,*/
   /*   _______, _______, _______, _______,      _______,           _______,        _______, _______,      _______,    _______ */
   /* ),*/
-};
-
-char s_email[22] = "w.pbcr@renzoyre.pb.hx";
-char s_email_work[15] = "wrm.pbcr@oy.hx";
-
-void keyboard_post_init_user(void) {
-  rot13(s_email);
-  rot13(s_email_work);
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (record->event.pressed) {
-    switch (keycode) {
-    case M_BEST:
-      SEND_STRING("Best wishes,\nJez"); break;
-    case M_RGRDS:
-      SEND_STRING("Regards,\nJez"); break;
-    case M_THNKS:
-      SEND_STRING("Thanks,\nJez"); break;
-    case M_CHRS:
-      SEND_STRING("Cheers,\nJez"); break;
-    case M_EML_H:
-      send_string(s_email); break;
-    case M_EML_W:
-      send_string(s_email_work); break;
-    }
-  }
-  return true;
 };
