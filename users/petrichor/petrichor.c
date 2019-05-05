@@ -5,6 +5,15 @@
 char s_email[22] = "w.pbcr@renzoyre.pb.hx";
 char s_email_work[15] = "wrm.pbcr@oy.hx";
 
+const uint32_t PROGMEM unicode_map[] = {
+  [STER] = 0x00A3, // £
+  [EURO] = 0x20AC, // €
+};
+
+void eeconfig_init_user(void) {
+  set_unicode_input_mode(UC_LNX);
+}
+
 void keyboard_post_init_user(void) {
   rot13(s_email);
   rot13(s_email_work);

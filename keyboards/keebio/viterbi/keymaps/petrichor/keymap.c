@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+#include "petrichor.h"
 
 extern keymap_config_t keymap_config;
 
