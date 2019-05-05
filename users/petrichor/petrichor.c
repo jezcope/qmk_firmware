@@ -40,6 +40,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING("Regards,\nJez"); break;
     case M_THNKS:
       SEND_STRING("Thanks,\nJez"); break;
+    case M_MTNKS:
+        SEND_STRING("Many thanks,\nJez"); break;
     case M_CHRS:
       SEND_STRING("Cheers,\nJez"); break;
     case M_EML_H:
