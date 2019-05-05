@@ -9,3 +9,5 @@ enum custom_keycodes {
 };
 
 enum unicode_names { STER, EURO };
+
+#define ALT_F4 LALT(KC_F4)
