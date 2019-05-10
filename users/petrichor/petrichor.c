@@ -34,6 +34,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	  register_code(KC_TAB);
       break;
 
+    case CPY_ALL:
+      SEND_STRING(SS_LCTRL("ac")); break;
+    case CUT_ALL:
+      SEND_STRING(SS_LCTRL("ax")); break;
+
     case M_BEST:
       SEND_STRING("Best wishes,\nJez"); break;
     case M_RGRDS:
