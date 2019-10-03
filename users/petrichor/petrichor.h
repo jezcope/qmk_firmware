@@ -12,5 +12,6 @@ enum custom_keycodes {
 enum unicode_names { STER, EURO };
 
 #define ALT_F4 LALT(KC_F4)
+#define GUI_F4 LGUI(KC_F4)
 #define KC_TBAK LCTL(KC_PGUP)
 #define KC_TFWD LCTL(KC_PGDN)

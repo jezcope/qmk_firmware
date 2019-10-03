@@ -40,7 +40,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING(SS_LCTRL("ax")); break;
 
     case M_BEST:
-      SEND_STRING("Best wishes,\nJez"); break;
+      SEND_STRING("All the best,\nJez"); break;
     case M_RGRDS:
       SEND_STRING("Regards,\nJez"); break;
     case M_THNKS:
