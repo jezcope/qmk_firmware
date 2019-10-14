@@ -7,6 +7,7 @@ uint16_t alt_tab_timer = 0;
 
 char s_email[22] = "w.pbcr@renzoyre.pb.hx";
 char s_email_work[15] = "wrm.pbcr@oy.hx";
+char s_email_shared[] = "hf@wrmaryyl.pb.hx";
 
 const uint32_t PROGMEM unicode_map[] = {
   [STER] = 0x00A3, // £
@@ -20,6 +21,7 @@ void eeconfig_init_user(void) {
 void keyboard_post_init_user(void) {
   rot13(s_email);
   rot13(s_email_work);
+  rot13(s_email_shared);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -53,6 +55,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       send_string(s_email); break;
     case M_EML_W:
       send_string(s_email_work); break;
+    case M_EML_S:
+        send_string(s_email_shared); break;
     }
   } else {
 	switch (keycode) {
