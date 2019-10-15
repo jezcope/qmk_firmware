@@ -37,9 +37,6 @@ enum layers {_DVORAK, _FN1, _FN2, _FN3, _MACRO, _MOUSE};
 
 #define GU_FN1 LM(_FN1, MOD_LGUI)
 
-#define CT_PGUP LCTL(KC_PGUP)
-#define CT_PGDN LCTL(KC_PGDN)
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_DVORAK] = LAYOUT_planck_grid(
@@ -64,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_FN3] = LAYOUT_planck_grid(
-    _______, _______, _______, X(STER), X(EURO), _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, X(STER), X(EURO), _______, _______, KC_WBAK, KC_WFWD, KC_TBAK, KC_TFWD, _______,
     UC_M_WI, _______, _______, _______, _______, _______, KC_PGUP, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______,
     UC_M_WC, _______, _______, _______, _______, _______, KC_PGDN, KC_HOME, KC_END , _______, _______, _______,
     UC_M_LN, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RESET
