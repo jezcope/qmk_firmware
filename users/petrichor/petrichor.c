@@ -48,7 +48,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case M_THNKS:
       SEND_STRING("Thanks,\nJez"); break;
     case M_MTNKS:
-        SEND_STRING("Many thanks,\nJez"); break;
+      SEND_STRING("Many thanks,\nJez"); break;
     case M_CHRS:
       SEND_STRING("Cheers,\nJez"); break;
     case M_EML_H:
@@ -56,7 +56,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case M_EML_W:
       send_string(s_email_work); break;
     case M_EML_S:
-        send_string(s_email_shared); break;
+      send_string(s_email_shared); break;
     }
   } else {
 	switch (keycode) {
@@ -88,17 +88,17 @@ void matrix_scan_user(void) {
     leading = false;
     leader_end();
 
-    SEQ_TWO_KEYS(KC_M, KC_C) {
-      SEND_STRING("Cheers,\nJez");
+    SEQ_TWO_KEYS(KC_M, KC_C) {SEND_STRING("Cheers,\nJez");}
+    SEQ_TWO_KEYS(KC_M, KC_T) {SEND_STRING("Thanks,\nJez");}
+    SEQ_TWO_KEYS(KC_M, KC_B) {SEND_STRING("All the best,\nJez");}
+    SEQ_TWO_KEYS(KC_M, KC_R) {SEND_STRING("Regards,\nJez");}
+    SEQ_TWO_KEYS(KC_M, KC_M) {SEND_STRING("Many thanks,\nJez");}
 
-    }
-    SEQ_TWO_KEYS(KC_M, KC_T) {
-      SEND_STRING("Thanks,\nJez");
-    }
+    SEQ_TWO_KEYS(KC_E, KC_E) {send_string(s_email);}
+    SEQ_TWO_KEYS(KC_E, KC_W) {send_string(s_email_work);}
+    SEQ_TWO_KEYS(KC_E, KC_S) {send_string(s_email_shared);}
 
-    SEQ_TWO_KEYS(KC_X, KC_R) {
-      reset_keyboard();
-    }
+    SEQ_TWO_KEYS(KC_X, KC_R) {reset_keyboard();}
   }
   matrix_scan_keymap();
 }
