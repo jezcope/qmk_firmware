@@ -74,6 +74,8 @@ void matrix_scan_keymap(void) {
     return;
 }
 
+LEADER_EXTERNS();
+
 void matrix_scan_user(void) {
   if (is_alt_tab_active) {
     if (timer_elapsed(alt_tab_timer) > 1000) {
@@ -82,5 +84,21 @@ void matrix_scan_user(void) {
     }
   }
 
+  LEADER_DICTIONARY() {
+    leading = false;
+    leader_end();
+
+    SEQ_TWO_KEYS(KC_M, KC_C) {
+      SEND_STRING("Cheers,\nJez");
+
+    }
+    SEQ_TWO_KEYS(KC_M, KC_T) {
+      SEND_STRING("Thanks,\nJez");
+    }
+
+    SEQ_TWO_KEYS(KC_X, KC_R) {
+      reset_keyboard();
+    }
+  }
   matrix_scan_keymap();
 }

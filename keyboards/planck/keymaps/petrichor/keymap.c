@@ -89,24 +89,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* ) */
 
 };
-
-LEADER_EXTERNS();
-
-void matrix_scan_keymap(void) {
-    LEADER_DICTIONARY() {
-        leading = false;
-        leader_end();
-
-        SEQ_TWO_KEYS(KC_M, KC_C) {
-            SEND_STRING("Cheers,\nJez");
-
-        }
-        SEQ_TWO_KEYS(KC_M, KC_T) {
-            SEND_STRING("Thanks,\nJez");
-        }
-
-        SEQ_TWO_KEYS(KC_X, KC_R) {
-            reset_keyboard();
-        }
-    }
-}
