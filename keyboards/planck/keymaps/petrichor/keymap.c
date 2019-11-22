@@ -39,47 +39,47 @@ enum layers {_DVORAK, _FN1, _FN2, _FN3, _MACRO, _MOUSE};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-[_DVORAK] = LAYOUT_planck_grid(
+  [_DVORAK] = LAYOUT_planck_grid(
     KC_TAB,  KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_DEL,
     KC_LCTL, KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_ENT,
     KC_LSPO, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_RSPC,
     KC_ESC , TT_MSE , KC_LGUI, KC_LALT, KC_FN3 , BS_FN1 , SP_FN2 , KC_RALT, KC_MAC , GU_FN1 , KC_LEAD, KC_RCTL
-),
+    ),
 
-[_FN1] = LAYOUT_planck_grid(
+  [_FN1] = LAYOUT_planck_grid(
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_SLSH,
     KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
     _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
-),
+    ),
 
-[_FN2] = LAYOUT_planck_grid(
+  [_FN2] = LAYOUT_planck_grid(
     KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_QUES,
     KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
     _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, _______, KC_HOME, KC_END,  _______,
     _______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
-),
+    ),
 
-[_FN3] = LAYOUT_planck_grid(
+  [_FN3] = LAYOUT_planck_grid(
     _______, _______, _______, X(STER), X(EURO), _______, _______, KC_WBAK, KC_WFWD, KC_TBAK, KC_TFWD, _______,
     UC_M_WI, _______, _______, _______, _______, _______, KC_PGUP, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______,
     UC_M_WC, _______, _______, _______, _______, _______, KC_PGDN, KC_HOME, KC_END , _______, _______, _______,
     UC_M_LN, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RESET
-),
+    ),
 
-[_MACRO] = LAYOUT_planck_grid(
+  [_MACRO] = LAYOUT_planck_grid(
     _______, M_EML_H, M_EML_W, M_EML_S, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, M_CHRS , M_MTNKS, M_THNKS, M_BEST , M_RGRDS, _______, _______, _______, _______, _______, _______,
     _______, CPY_ALL, CUT_ALL, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
-),
+    ),
 
-[_MOUSE] = LAYOUT_planck_grid(
+  [_MOUSE] = LAYOUT_planck_grid(
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, KC_WH_U, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______,
     _______, _______, _______, _______, _______, _______, KC_WH_D, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, KC_BTN3, KC_BTN1, KC_BTN2, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R
-),
+    ),
 
 /* [_TEMPLATE] = LAYOUT_planck_grid( */
 /*     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, */

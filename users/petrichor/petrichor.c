@@ -28,12 +28,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
     switch (keycode) {
     case ALT_TAB:
-	  if (!is_alt_tab_active) {
-		is_alt_tab_active = true;
-		register_code(KC_LALT);
-	  }
-	  alt_tab_timer = timer_read();
-	  register_code(KC_TAB);
+      if (!is_alt_tab_active) {
+        is_alt_tab_active = true;
+        register_code(KC_LALT);
+      }
+      alt_tab_timer = timer_read();
+      register_code(KC_TAB);
       break;
 
     case CPY_ALL:
@@ -59,11 +59,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       send_string(s_email_shared); break;
     }
   } else {
-	switch (keycode) {
-	case ALT_TAB:
-	  unregister_code(KC_TAB);
-	  break;
-	}
+    switch (keycode) {
+    case ALT_TAB:
+      unregister_code(KC_TAB);
+      break;
+    }
   }
 
   return true;
@@ -71,7 +71,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 __attribute__ ((weak))
 void matrix_scan_keymap(void) {
-    return;
+  return;
 }
 
 LEADER_EXTERNS();
