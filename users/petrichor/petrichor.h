@@ -6,7 +6,7 @@ enum custom_keycodes {
   M_EML_H, M_EML_W, M_EML_S,
   ALT_TAB,
   CPY_ALL, CUT_ALL,
-  NEW_SAFE_RANGE
+  SAFE_RANGE_KEYMAP
 };
 
 enum unicode_names { STER, EURO };

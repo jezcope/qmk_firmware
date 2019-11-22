@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_DEL,
     KC_LCTL, KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_ENT,
     KC_LSPO, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_RSPC,
-    KC_ESC , TT_MSE , KC_LGUI, KC_LALT, KC_FN3 , BS_FN1 , SP_FN2 , KC_RALT, KC_MAC , GU_FN1 , _______, KC_RCTL
+    KC_ESC , TT_MSE , KC_LGUI, KC_LALT, KC_FN3 , BS_FN1 , SP_FN2 , KC_RALT, KC_MAC , GU_FN1 , KC_LEAD, KC_RCTL
 ),
 
 [_FN1] = LAYOUT_planck_grid(
@@ -89,3 +89,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* ) */
 
 };
+
+LEADER_EXTERNS();
+
+void matrix_scan_keymap(void) {
+    LEADER_DICTIONARY() {
+        leading = false;
+        leader_end();
+
+        SEQ_TWO_KEYS(KC_M, KC_C) {
+            SEND_STRING("Cheers,\nJez");
+
+        }
+        SEQ_TWO_KEYS(KC_M, KC_T) {
+            SEND_STRING("Thanks,\nJez");
+        }
+
+        SEQ_TWO_KEYS(KC_X, KC_R) {
+            reset_keyboard();
+        }
+    }
+}

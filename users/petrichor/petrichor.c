@@ -69,6 +69,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 };
 
+__attribute__ ((weak))
+void matrix_scan_keymap(void) {
+    return;
+}
+
 void matrix_scan_user(void) {
   if (is_alt_tab_active) {
     if (timer_elapsed(alt_tab_timer) > 1000) {
@@ -76,4 +81,6 @@ void matrix_scan_user(void) {
       is_alt_tab_active = false;
     }
   }
+
+  matrix_scan_keymap();
 }
