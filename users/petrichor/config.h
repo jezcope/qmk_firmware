@@ -10,3 +10,6 @@
 #define TAPPING_TOGGLE             3
 
 #define PERMISSIVE_HOLD
+
+#define LEADER_TIMEOUT 500
+#define LEADER_PER_KEY_TIMING

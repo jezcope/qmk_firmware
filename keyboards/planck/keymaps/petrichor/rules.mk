@@ -2,4 +2,3 @@
 CFLAGS = -Wno-error=deprecated
 
 AUDIO_ENABLE = no
-LEADER_ENABLE = yes
