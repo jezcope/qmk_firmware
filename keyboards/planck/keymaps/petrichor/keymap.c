@@ -19,7 +19,7 @@
 
 extern keymap_config_t keymap_config;
 
-enum layers {_DVORAK, _FN1, _FN2, _FN3, _MACRO, _MOUSE};
+enum layers {_DVORAK, _FN1, _FN2, _FN3, _MOUSE};
 
 #define _______ KC_TRNS
 #define XXXXXXX KC_NO
@@ -27,7 +27,6 @@ enum layers {_DVORAK, _FN1, _FN2, _FN3, _MACRO, _MOUSE};
 #define KC_FN1 MO(_FN1)
 #define KC_FN2 MO(_FN2)
 #define KC_FN3 MO(_FN3)
-#define KC_MAC MO(_MACRO)
 #define KC_MSE MO(_MOUSE)
 #define TT_MSE TT(_MOUSE)
 #define SP_FN1 LT(_FN1, KC_SPACE)
@@ -43,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_DEL,
     KC_LCTL, KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_ENT,
     KC_LSPO, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_RSPC,
-    KC_ESC , TT_MSE , KC_LGUI, KC_LALT, KC_FN3 , BS_FN1 , SP_FN2 , KC_RALT, KC_MAC , GU_FN1 , KC_LEAD, KC_RCTL
+    KC_ESC , TT_MSE , KC_LGUI, KC_LALT, KC_FN3 , BS_FN1 , SP_FN2 , KC_RALT, KC_LEAD, GU_FN1 , _______, KC_RCTL
     ),
 
   [_FN1] = LAYOUT_planck_grid(
@@ -65,13 +64,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     UC_M_WI, _______, _______, _______, _______, _______, KC_PGUP, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______,
     UC_M_WC, _______, _______, _______, _______, _______, KC_PGDN, KC_HOME, KC_END , _______, _______, _______,
     UC_M_LN, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RESET
-    ),
-
-  [_MACRO] = LAYOUT_planck_grid(
-    _______, M_EML_H, M_EML_W, M_EML_S, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, M_CHRS , M_MTNKS, M_THNKS, M_BEST , M_RGRDS, _______, _______, _______, _______, _______, _______,
-    _______, CPY_ALL, CUT_ALL, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 
   [_MOUSE] = LAYOUT_planck_grid(

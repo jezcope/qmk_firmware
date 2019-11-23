@@ -98,6 +98,9 @@ void matrix_scan_user(void) {
     SEQ_TWO_KEYS(KC_E, KC_W) {send_string(s_email_work);}
     SEQ_TWO_KEYS(KC_E, KC_S) {send_string(s_email_shared);}
 
+    SEQ_TWO_KEYS(KC_C, KC_C) {SEND_STRING(SS_LCTRL("ac"));}
+    SEQ_TWO_KEYS(KC_C, KC_X) {SEND_STRING(SS_LCTRL("ax"));}
+
     SEQ_TWO_KEYS(KC_X, KC_R) {reset_keyboard();}
   }
   matrix_scan_keymap();
