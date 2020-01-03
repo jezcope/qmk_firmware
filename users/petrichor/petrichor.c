@@ -88,11 +88,14 @@ void matrix_scan_user(void) {
     leading = false;
     leader_end();
 
-    SEQ_TWO_KEYS(KC_M, KC_C) {SEND_STRING("Cheers,\nJez");}
-    SEQ_TWO_KEYS(KC_M, KC_T) {SEND_STRING("Thanks,\nJez");}
-    SEQ_TWO_KEYS(KC_M, KC_B) {SEND_STRING("All the best,\nJez");}
-    SEQ_TWO_KEYS(KC_M, KC_R) {SEND_STRING("Regards,\nJez");}
-    SEQ_TWO_KEYS(KC_M, KC_M) {SEND_STRING("Many thanks,\nJez");}
+    SEQ_TWO_KEYS(KC_A, KC_C) {SEND_STRING("Cheers,\nJez");}
+    SEQ_TWO_KEYS(KC_A, KC_T) {SEND_STRING("Thanks,\nJez");}
+    SEQ_TWO_KEYS(KC_A, KC_B) {SEND_STRING("All the best,\nJez");}
+    SEQ_TWO_KEYS(KC_A, KC_R) {SEND_STRING("Regards,\nJez");}
+    SEQ_TWO_KEYS(KC_A, KC_M) {SEND_STRING("Many thanks,\nJez");}
+
+    SEQ_TWO_KEYS(KC_O, KC_R) {SEND_STRING("For reference.\n\nJez");}
+    SEQ_TWO_KEYS(KC_O, KC_T) {SEND_STRING("thanks for getting in touch.  ");}
 
     SEQ_TWO_KEYS(KC_E, KC_E) {send_string(s_email);}
     SEQ_TWO_KEYS(KC_E, KC_W) {send_string(s_email_work);}
