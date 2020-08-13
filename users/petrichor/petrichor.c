@@ -96,6 +96,7 @@ void matrix_scan_user(void) {
     SEQ_TWO_KEYS(KC_A, KC_R) {SEND_STRING("Regards," SS_LSFT("\n") "Jez");}
     SEQ_TWO_KEYS(KC_A, KC_M) {SEND_STRING("Many thanks," SS_LSFT("\n") "Jez");}
     SEQ_TWO_KEYS(KC_A, KC_W) {SEND_STRING("Have a great weekend," SS_LSFT("\n") "Jez"); }
+    SEQ_TWO_KEYS(KC_A, KC_H) { SEND_STRING("I hope that helps. All the best," SS_LSFT("\n") "Jez"); }
 
     SEQ_TWO_KEYS(KC_O, KC_R) {SEND_STRING("For reference.\n\nJez");}
     SEQ_TWO_KEYS(KC_O, KC_T) {SEND_STRING("thanks for getting in touch.  ");}
