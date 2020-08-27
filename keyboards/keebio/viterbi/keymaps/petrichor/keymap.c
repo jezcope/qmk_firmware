@@ -35,10 +35,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_FN1] = LAYOUT_ortho_5x14(
-	KC_INS , KC_TILD, KC_F1  , KC_F2  , KC_F3  , ALT_F4 , KC_F5  ,     _______, _______, _______, _______, _______, _______, _______,
+	KC_INS , KC_TILD, _______, _______, _______, ALT_F4 , _______,     _______, _______, _______, _______, _______, _______, _______,
     KC_TBAK, _______, KC_EXLM, KC_AT  , KC_HASH, KC_DLR , KC_PERC,     _______, KC_WBAK, KC_WFWD, KC_TBAK, KC_TFWD, KC_LCBR, KC_RCBR,
-    KC_TFWD, _______, KC_F1  , KC_F2  , KC_F3  , KC_F4  , KC_F5  ,     KC_PGUP, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, KC_LBRC, KC_RBRC,
-    KC_HOME, _______, KC_F7  , KC_F8  , KC_F9  , KC_F10 , KC_F11 ,     KC_PGDN, KC_HOME, KC_END , _______, _______, KC_LPRN, KC_RPRN,
+    KC_TFWD, _______, _______, _______, _______, _______, _______,     KC_PGUP, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, KC_LBRC, KC_RBRC,
+    KC_HOME, _______, _______, _______, _______, _______, _______,     KC_PGDN, KC_HOME, KC_END , _______, _______, KC_LPRN, KC_RPRN,
     KC_END , _______, _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, _______, _______
   ),
 
